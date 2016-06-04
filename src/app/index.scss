@@ -33,6 +33,10 @@ body {
   padding-bottom: 20px;
 }
 
+/*h3 {
+  text-align: center;
+}*/
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -150,7 +154,7 @@ $animation-duration: 0.25s;
   margin-bottom: 0;
 }
 
-.list-group-item {
+.list-group-dish {
   border: none;
 }
 
@@ -162,6 +166,7 @@ $animation-duration: 0.25s;
 }
 
 .dl-horizontal dd {
+    /*text-align: center;*/
     margin-left: 0;
     margin-bottom: 1em;
 }
