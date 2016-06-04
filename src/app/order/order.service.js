@@ -35,7 +35,7 @@
 
     vm.getTotal = function() {
       return _.reduce(vm.order, function(sum, dish) {
-        return sum + vm.getCost(dish);
+        return (sum + vm.getCost(dish));
       }, 0);
     };
 

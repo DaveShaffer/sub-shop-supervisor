@@ -33,9 +33,9 @@ body {
   padding-bottom: 20px;
 }
 
-/*h3 {
+h3 {
   text-align: center;
-}*/
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -159,14 +159,14 @@ $animation-duration: 0.25s;
 }
 
 .dl-horizontal dt {
-    text-align: left;
+    text-align: right;
     /*margin-bottom: 1em;*/
     /*width: auto;*/
     padding-right: 1em;
 }
 
 .dl-horizontal dd {
-    /*text-align: center;*/
+    text-align: right;
     margin-left: 0;
     margin-bottom: 1em;
 }
