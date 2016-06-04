@@ -113,7 +113,7 @@ body {
 }
 
 
-.cart {
+.order {
   padding: 10px;
 }
 
@@ -136,7 +136,7 @@ $animation-duration: 0.25s;
   }
 }
 
-.animate-cart {
+.animate-order {
   &.ng-enter {
     animation: fadeInRight 1s;
   }

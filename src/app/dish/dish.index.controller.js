@@ -6,15 +6,39 @@
     .controller('DishIndexController', DishIndexController);
 
   /** @ngInject */
-  function DishIndexController(DishService, $state) {
+  function DishIndexController(DishService, $state, OrderService) {
     var vm = this;
 
+    vm.searchText = '';
     vm.inventory = DishService.inventory;
+    vm.order = OrderService.order;
+
+    vm.addDish = function(dish) {
+      OrderService.addDish(dish);
+    };
+
+    vm.removeDish = function(dish) {
+      OrderService.removeDish(dish);
+    };
+
+    vm.getCost = function(dish) {
+      return OrderService.getCost(dish);
+    };
+
+    vm.getTotal = function() {
+      return OrderService.getTotal();
+    };
+
+    vm.clearOrder = function() {
+      return OrderService.clearOrder();
+    };
 
     vm.goDish = function (dish) {
+      console.log('goDish: ' + dish.id);
       $state.go( 'dishDetail', { dishId : dish.id } );
     };
-  }
+  };
+
   angular
     .module('1vSubShop')
     .filter('inventory', function() {

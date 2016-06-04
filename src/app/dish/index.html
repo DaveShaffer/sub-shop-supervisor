@@ -35,7 +35,7 @@
               </article>
             </a>
             <div class="text-center">
-              <button class="btn btn-sm btn-success" ng-click="ctrl.addDish(dish)">Add to Cart</button>
+              <button class="btn btn-sm btn-success" ng-click="ctrl.addDish(dish)">Add to Order</button>
             </div>
           </div>
           <div class="animate-inventory text-center" ng-hide="filteredDishes.length">
@@ -43,6 +43,18 @@
           </div>
         </div>
       </div>
+    </article>
+    <article class="col-sm-3">
+      <h2>Your Order:</h2>
+      <ul>
+        <li class="order animate-order" ng-repeat="dish in ctrl.order">
+          <span>{{ dish.quantity + ' x ' + dish.name + ': ' + (ctrl.getCost(dish) | currency) }}</span>
+          <button class="btn btn-danger btn-xs" ng-click="ctrl.removeDish(dish)">Remove Dish</button>
+        </li>
+      </ul>
+      <h3>Total: {{ ctrl.getTotal() | currency }}</h3>
+      <br>
+      <button class="btn btn-danger" ng-click="ctrl.clearOrder()">Clear Order</button>
     </article>
   </div>
 </section>
