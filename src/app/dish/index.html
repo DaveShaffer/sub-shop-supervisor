@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1>Dish Index Page</h1>
+  <h1>Menu</h1>
   <div ng-repeat="dish in ctrl.inventory">
     <a ng-click="ctrl.goDish(dish)">{{ dish.name + ' : ' + (dish.price | currency) }}</a>
   </div>
