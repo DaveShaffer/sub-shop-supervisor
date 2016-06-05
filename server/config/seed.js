@@ -6,6 +6,7 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import Menu from '../api/menu/menu.model';
+import Order from '../api/order/orderitem.model';
 
 Thing.find({}).remove()
   .then(() => {
@@ -80,3 +81,10 @@ Thing.find({}).remove()
 .catch((err) => {
   console.log('Error: ', err);
 });
+
+//   OrderItem.find({}).remove()
+//   .then(() => {
+//     return OrderItem.create(
+//       {
+
+// })
