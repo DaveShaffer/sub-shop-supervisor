@@ -1,0 +1,61 @@
+<!-- <div class="text-center">
+  <h1>Menu</h1>
+  <div ng-repeat="dish in ctrl.inventory">
+    <a ng-click="ctrl.goDish(dish)">{{ dish.name + ' : ' + (dish.price | currency) }}</a>
+  </div>
+</div> -->
+
+<section class="container-fluid main">
+  <div class="row">
+    <article class="items col-sm-9">
+      <section class="search">
+        <form class="navbar-form" role="search">
+          <div class="form-group"><input type="text" class="form-control" name="search" ng-model="ctrl.searchText" placeholder="Search"></div>
+          <button type="clear"  class="btn btn-warning" ng-click="ctrl.searchText = ''">Reset</button>
+        </form>
+      </section>
+
+      <div class="list-group">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 animate-inventory"
+               ng-repeat="dish in filteredDishes = ( ctrl.inventory | inventory : ctrl.searchText | orderBy: 'price' )">
+            <a ng-click="ctrl.goDish(dish)" class="list-group-dish">
+              <h3>{{ dish.name }}</h3>
+              <article class="row">
+                <!-- <div class="col-xs-5">
+                  <img class="middle" width=96px src="/assets/images/inventory/{{dish.imageFile}}"/>
+                </div> -->
+                <div class="col-xs-7">
+                  <dl class="dl-horizontal">
+                    <!-- <dt>Category:</dt><dd>{{ dish.category }}</dd> -->
+                    <dt>Price:</dt>
+                    <dd>{{ dish.price | currency }}</dd>
+                    <!-- <dt>In Stock:</dt><dd>{{ dish.qty }} </dd> -->
+                  </dl>
+                </div>
+              </article>
+            </a>
+            <div class="text-center">
+              <button class="btn btn-sm btn-success" id="sold-out-button" ng-click="ctrl.addDish(dish)" ng-disabled="dish.qty < 1" ng-class="{'btn-danger': dish.qty == 0}">Add to Order</button>
+            </div>
+          </div>
+          <div class="animate-inventory text-center" ng-hide="filteredDishes.length">
+            <h3>No dishes match your search.</h3>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="col-sm-3">
+      <h2>Your Order:</h2>
+      <ul>
+        <li class="order animate-order" ng-repeat="dish in ctrl.order">
+          <span>{{ dish.quantity + ' x ' + dish.name + ': ' + (ctrl.getCost(dish) | currency) }}</span>
+          <div><button class="btn btn-danger btn-xs" ng-click="ctrl.removeDish(dish)">Remove Item</button></div>
+        </li>
+      </ul>
+      <h3>Total inc. tax: {{ ctrl.getTotal() | currency }}</h3>
+      <br>
+      <button class="btn btn-danger" ng-click="ctrl.clearOrder(order)">Clear Order</button>
+    </article>
+  </div>
+</section>
