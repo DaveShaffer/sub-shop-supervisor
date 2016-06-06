@@ -31,7 +31,7 @@
       return OrderService.getTotal();
     };
 
-    vm.clearOrder = function(order) {
+    vm.clearOrder = function() {
       var x = vm.order;
       DishService.resetQuantity(x);
       OrderService.clearOrder();

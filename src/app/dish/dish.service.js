@@ -11,19 +11,15 @@
     var that = this;
 
     that.resetQuantity = function(order) {
-      // _.each(that.inventory, function(dish) {
-      // dish.qty = 3;
-      // });
       _.each(order, function(dish) {
         var item = that.findItemById(dish.id);
         item.qty += dish.quantity;
-        console.log(order, dish, item);
       });
     }
 
     that.addOneToQuantity = function(dish) {
-      var dish = that.findItemById(dish.id);
-      dish.qty += 1;
+      var item = that.findItemById(dish.id);
+      item.qty += 1;
     }
 
     that.findItemById = function(id) {
